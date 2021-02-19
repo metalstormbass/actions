@@ -13,9 +13,6 @@ inputs:
   json:
     description: "Output a snyk.json file with results if running the test command"
     default: false
-  requirements:
-    description: "Location of requirements.txt"
-    default: requirements.txt
 runs:
   using: "docker"
   image: "docker://snyk/snyk:python"
@@ -23,6 +20,7 @@ runs:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: python
   args:
-  - pip install -r ${{ inputs.requirements }} && snyk
+  - pip install -r requirements.txt 
+  - snyk
   - ${{ inputs.command }}
   - ${{ inputs.args }} 

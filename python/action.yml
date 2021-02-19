@@ -13,7 +13,9 @@ inputs:
   json:
     description: "Output a snyk.json file with results if running the test command"
     default: false
-  requirements: "Location of requirements.txt"
+  requirements:
+    description: "Location of requirements.txt"
+    default: requirements.txt
 runs:
   using: "docker"
   image: "docker://snyk/snyk:python"

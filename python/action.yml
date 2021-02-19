@@ -20,6 +20,7 @@ runs:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: python
   args:
+  - pip install -r ${{ inputs.requirements }}
   - snyk
   - ${{ inputs.command }}
   - ${{ inputs.args }} 
